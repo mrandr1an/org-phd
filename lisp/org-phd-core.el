@@ -9,11 +9,33 @@
   :group 'org-phd
 )
 
-(defun org-phd-read-org ()
-  "Test function."
+(defcustom org-phd-targets '(pdf html)
+  "Targets of org-phd."
+  :type '(repeat symbol)
+  :group 'org-phd
+)
+
+(defun org-phd-buffer/get-buffer ()
+  "."
+  (get-buffer-create "*Org PhD*")
+)
+
+(defun org-phd-core/export (&optional buffer type target)
+  "BUFFER is."
   (interactive)
-  (let ((key (org-collect-keywords '("TITLE"))))
-    (message "%S" key))
+  (if (called-interactively-p 'any)
+      (org-phd-export--interactive)
+      (org-phd-export--noninteractive)
+)
+
+(defun org-phd-export--interactive ()
+  "."
+  (message "Interactive")
+)
+
+(defun org-phd-export--noninteractive ()
+  "."
+  (message "Not Interactive")
 )
 
 (provide 'org-phd-core)
