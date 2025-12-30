@@ -10,11 +10,11 @@
                (expand-file-name "lisp" (file-name-directory (or load-file-name buffer-file-name)))))
 
 ;;;###autoload
-(define-minor-mode org-phd-minor-mode
+(define-minor-mode org-phd-mode
   "Test description."
   :init-value nil
   :lighter " org-phd"
-  (if org-phd-minor-mode
+  (if org-phd-mode
       (progn
 	(require 'org-phd-core)
 	(message "org-phd minor mode enabled"))

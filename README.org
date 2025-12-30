@@ -1,0 +1,8 @@
+* Org PhD
+** Installation
+#+begin_src emacs-lisp
+(use-package org-phd
+  :elpaca (:host github :repo "mrandr1an/org-phd")
+  :hook org-mode
+)
+#+end_src
