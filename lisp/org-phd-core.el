@@ -17,7 +17,8 @@
 
 (defun org-phd-buffer/get-buffer ()
   "."
-  (get-buffer-create "*Org PhD*")
+  (with-current-buffer (get-buffer-create "*Org PhD*")
+    (setq buffer-read-only t))
 )
 
 (defun org-phd-core/export (&optional buffer type target)
