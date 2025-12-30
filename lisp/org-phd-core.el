@@ -25,7 +25,7 @@
   (interactive)
   (if (called-interactively-p 'any)
       (org-phd-export--interactive)
-      (org-phd-export--noninteractive)
+      (org-phd-export--noninteractive))
 )
 
 (defun org-phd-export--interactive ()
