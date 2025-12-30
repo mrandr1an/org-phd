@@ -23,4 +23,3 @@
 
 (provide 'org-phd)
 ;;; org-phd.el ends here
-
