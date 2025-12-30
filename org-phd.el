@@ -5,11 +5,15 @@
 ;;; Commentary:
 ;;; Code:
 
+;;;###autoload
 (define-minor-mode org-phd-minor-mode
   "Test description."
   :init-value nil
-  (message "org-phd-mode enabled")
-)
+  :lighter " org-phd"
+  (if org-phd-minor-mode
+      (message "org-phd minor mode enabled")
+    (message "org-phd minor mode disabled")))
 
 (provide 'org-phd)
 ;;; org-phd.el ends here
+
