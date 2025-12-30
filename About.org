@@ -1,0 +1,7 @@
+#+AUTHOR: Chris Liourtas
+#+TITLE: On Writting Projects Using Org-Mode
+
+* Motivation
+* Custom
+* Goals
+
