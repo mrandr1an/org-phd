@@ -24,7 +24,3 @@
 (provide 'org-phd)
 ;;; org-phd.el ends here
 
-(use-package org-phd
-  :elpaca (:host github :repo "mrandr1an/org-phd")
-  :commands (org-phd-minor-mode)
-)
