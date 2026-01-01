@@ -15,11 +15,7 @@
   :group 'org-phd
 )
 
-(defun org-phd-buffer/get-buffer ()
-  "."
-  (with-current-buffer (get-buffer-create "*Org PhD*")
-    (setq buffer-read-only t))
-)
+(require 'org-phd-buffer)
 
 (defun org-phd-core/export (&optional buffer type target)
   "BUFFER is."
