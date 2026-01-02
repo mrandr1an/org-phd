@@ -1,11 +1,15 @@
 ;;; org-phd-buffer --- Summary
 ;;; Commentary:
 ;;; Code:
+(defgroup org-phd-buffer nil
+  "Group for org-phd-buffer."
+  :group 'org-phd
+)
 
 (defun org-phd-buffer/get-buffer ()
-  "."
+  "Create an org-phd buffer based on the #+TITLE."
   (let* ((title (or (org-get-title) "Untitled"))
-	 (buffer-name (format "*OrgPhd %s*" title)))
+	 (buffer-name (format "*%s.phd*" title)))
     (with-current-buffer (get-buffer-create buffer-name)
       (setq buffer-read-only t)
       (current-buffer)))
