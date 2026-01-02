@@ -4,7 +4,7 @@
 
 (org-export-define-backend 'github-md
   '(
-    (headline . github-md-headline)
+    (headline . org-phd-ox/github-md/headline)
    )
  :menu-entry
   '(?g "Export to GitHub Markdown"
