@@ -123,7 +123,9 @@ INFO is a plist holding contextual information."
   (let* ((type (org-element-property :type special-block))
 	 (label (upcase type)))
     (when contents
-      (concat "> [!" label "]\n" contents)
+      (concat "> [!" label "]\n"  (mapconcat (lambda (line) (concat "> " line))
+                         (split-string (string-trim-right contents) "\n")
+                         "\n"))
       ))
 )
 
