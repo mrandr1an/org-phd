@@ -6,7 +6,7 @@ This paragraph contains *italic*, **bold**, ,
 ~~strike-through~~, and a LaTeX fragment: $$a^2 + b^2 = c^2$$.
 # Formatting Stress Test
 Mixing markup in one sentence:
-****bold **italic ****** and ~~****strike-through****~~.
+***bold***
 
 Another paragraph after a blank line.
 # Nested Headings

@@ -8,7 +8,7 @@ This paragraph contains /italic/, *bold*, _underline_,
 
 * Formatting Stress Test
 Mixing markup in one sentence:
-**bold *italic _underline_*** and +**strike-through**+.
+*/bold/*
 
 Another paragraph after a blank line.
 
