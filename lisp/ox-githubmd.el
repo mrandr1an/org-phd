@@ -8,6 +8,8 @@
     (section . org-phd-ox/github-md/section)
     (paragraph . org-phd-ox/github-md/paragraph)
 
+    (latex-fragment . org-phd-ox/github-md/special-block)
+
     (bold . org-phd-ox/github-md/bold)
     (strike-through . org-phd-ox/github-md/strike-through)
     (italic . org-phd-ox/github-md/italic)
@@ -72,19 +74,27 @@ INFO is a plist holding contextual information."
 )
 
 (defun org-phd-ox/github-md/underline (_underline contents _info)
-  "Translate Org UNDERLINE into GitHub Markdown using HTML."
+  "Translate Org UNDERLINE into GitHub Markdown using HTML.
+CONTENTS is the text with bold markup.
+INFO is a plist holding contextual information."
   (format "<u>%s</u>" (or contents "")))
 
 (defun org-phd-ox/github-md/strike-through (_strike-through contents _info)
-  "Translate Org STRIKE-THROUGH into GitHub Markdown."
+  "Translate Org STRIKE-THROUGH into GitHub Markdown.
+CONTENTS is the text with bold markup.
+INFO is a plist holding contextual information."
   (format "~~%s~~" (or contents "")))
 
 (defun org-phd-ox/github-md/italic (_italic contents _info)
-  "Translate Org ITALIC into GitHub Markdown."
+  "Translate Org ITALIC into GitHub Markdown.
+CONTENTS is the text with bold markup.
+INFO is a plist holding contextual information."
   (format "*%s*" (or contents "")))
 
 (defun org-phd-ox/github-md/latex-fragment (latex-fragment _contents _info)
-  "Translate Org LaTeX fragment into inline code."
+  "Translate Org LATEX-FRAGMENT into inline code.
+CONTENTS is the text with bold markup.
+INFO is a plist holding contextual information."
   (let ((value (org-element-property :value latex-fragment)))
     (format "$%s$" value)))
 
@@ -107,6 +117,14 @@ INFO is a plist holding contextual information."
 
 (defun org-phd-ox/github-md/special-block (special-block contents
 							 info)
+  "Translate Org SPECIAL-BLOCK into GitHub Markdown.
+CONTENTS is the text with bold markup.
+INFO is a plist holding contextual information."
+  (let* ((type (org-element-property :type special-block))
+	 (label (upcase type)))
+    (when contents
+      (concat "> **" label ":**\n" contents)
+      ))
 )
 
 (provide 'ox-githubmd)
