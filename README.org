@@ -1,9 +1,9 @@
 #+title: Org-PhD
 #+subtitle: Org Exports for *everyone*
 
-#+begin_alert
+#+begin_warning
 This is alpha software.
-#+end_alert
+#+end_warning
 
 * Motivation
 
