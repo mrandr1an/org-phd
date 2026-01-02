@@ -20,8 +20,7 @@
    )
  :options-alist
  '(
-   (:title "GH-TITLE" nil "" t)
-   (:subtitle "GH-SUBTITLE" nil "" t)
+   (:subtitle "SUBTITLE" nil "" t)
   )
  :menu-entry
   '(?g "Export to GitHub Markdown"
