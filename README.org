@@ -3,7 +3,7 @@
 * Top Level Heading
 This is a normal paragraph.
 
-This paragraph contains *italic*, **bold**, _underline_,
+This paragraph contains /italic/, *bold*, _underline_,
 +strike-through+, and a LaTeX fragment: \( a^2 + b^2 = c^2 \).
 
 * Formatting Stress Test
