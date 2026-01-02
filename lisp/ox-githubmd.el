@@ -13,15 +13,15 @@
     (bold . org-phd-ox/github-md/bold)
     (strike-through . org-phd-ox/github-md/strike-through)
     (italic . org-phd-ox/github-md/italic)
-    (underlined . org-phd-ox/github-md/underlined)
+    (underline . org-phd-ox/github-md/underline)
     (latex-fragment . org-phd-ox/github-md/latex-fragment)
 
     (template . org-phd-ox/github-md/template)
    )
  :options-alist
  '(
-   (:title "title" nil "" t)
-   (:subtitle "subtitle" nil "" t)
+   (:title "GH-TITLE" nil "" t)
+   (:subtitle "GH-SUBTITLE" nil "" t)
   )
  :menu-entry
   '(?g "Export to GitHub Markdown"

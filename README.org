@@ -1,5 +1,5 @@
-#+title: Org-PhD
-#+subtitle: Org Exports for *everyone*
+#+GH-TITLE: Org-PhD
+#+GH-SUBTITLE: Org Exports for *everyone*
 
 #+begin_warning
 This is alpha software.
