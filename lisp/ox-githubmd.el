@@ -15,7 +15,14 @@
     (italic . org-phd-ox/github-md/italic)
     (underlined . org-phd-ox/github-md/underlined)
     (latex-fragment . org-phd-ox/github-md/latex-fragment)
+
+    (template . org-phd-ox/github-md/template)
    )
+ :options-alist
+ '(
+   (:title "title" nil "" t)
+   (:subtitle "subtitle" nil "" t)
+  )
  :menu-entry
   '(?g "Export to GitHub Markdown"
        ((?f "To file"   github-md-export-to-file)
@@ -36,6 +43,22 @@
   (org-export-to-buffer 'github-md "*Org GitHub MD Export*"
     async subtreep visible-only body-only ext-plist
     (lambda () (gfm-mode))))
+
+(defun org-phd-ox/github-md/template (contents info)
+  (let* ((title (org-export-data (plist-get info :title) info))
+         (subtitle (org-export-data (plist-get info :subtitle) info))
+         (title (org-html-encode-plain-text (or title "")))
+         (subtitle (org-html-encode-plain-text (or subtitle "")))
+         (header
+          (cond
+           ((and (string-empty-p title) (string-empty-p subtitle))
+            "")
+           ((string-empty-p subtitle)
+            (format "<div align=\"center\">\n\n# %s\n\n</div>\n\n" title))
+           (t
+            (format "<div align=\"center\">\n\n# %s\n\n%s\n\n</div>\n\n"
+                    title subtitle)))))
+    (concat header contents)))
 
 (defun org-phd-ox/github-md/headline (headline contents info)
   "Translate an org HEADLINE into a github-markdown headline.
