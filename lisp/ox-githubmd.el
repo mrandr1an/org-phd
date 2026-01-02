@@ -86,7 +86,7 @@ INFO is a plist holding contextual information."
 (defun org-phd-ox/github-md/latex-fragment (latex-fragment _contents _info)
   "Translate Org LaTeX fragment into inline code."
   (let ((value (org-element-property :value latex-fragment)))
-    (format "`%s`" value)))
+    (format "$%s$" value)))
 
 (defun org-phd-ox/github-md/table (table contents info)
 )
