@@ -17,7 +17,7 @@
     (strike-through . org-phd-ox/github-md/strike-through)
     (italic . org-phd-ox/github-md/italic)
     (underline . org-phd-ox/github-md/underline)
-    (underline . org-phd-ox/github-md/code)
+    (code . org-phd-ox/github-md/code)
     (latex-fragment . org-phd-ox/github-md/latex-fragment)
 
     (template . org-phd-ox/github-md/template)
