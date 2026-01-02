@@ -8,12 +8,16 @@
     (section . org-phd-ox/github-md/section)
     (paragraph . org-phd-ox/github-md/paragraph)
 
+    (src-block . org-phd-ox/github-md/src-block)
     (special-block . org-phd-ox/github-md/special-block)
+
+    (link . org-phd-ox/github-md/link)
 
     (bold . org-phd-ox/github-md/bold)
     (strike-through . org-phd-ox/github-md/strike-through)
     (italic . org-phd-ox/github-md/italic)
     (underline . org-phd-ox/github-md/underline)
+    (underline . org-phd-ox/github-md/code)
     (latex-fragment . org-phd-ox/github-md/latex-fragment)
 
     (template . org-phd-ox/github-md/template)
@@ -113,6 +117,12 @@ CONTENTS is the text with bold markup.
 INFO is a plist holding contextual information."
   (format "*%s*" (or contents "")))
 
+(defun org-phd-ox/github-md/code (_code contents _info)
+  "Translate Org CODE into GitHub Markdown.
+CONTENTS is the text with bold markup.
+INFO is a plist holding contextual information."
+  (format "`%s`" (or contents "")))
+
 (defun org-phd-ox/github-md/latex-fragment (latex-fragment _contents _info)
   "Translate Org LATEX-FRAGMENT into inline code.
 CONTENTS is the text with bold markup.
@@ -131,11 +141,53 @@ INFO is a plist holding contextual information."
 )
 
 (defun org-phd-ox/github-md/link (link contents info)
+  "Translate an Org LINK object into GitHub-flavored Markdown."
+  (let* ((type (org-element-property :type link))
+         (raw-path (org-element-property :path link))
+         (desc (or contents
+                   (org-element-property :raw-link link)
+                   raw-path
+                   "")))
+    (pcase type
+      ;; External-ish links
+      ((or "http" "https" "ftp" "mailto")
+       (let ((url (org-element-property :raw-link link)))
+         (if (and contents (not (string-empty-p contents)))
+             (format "[%s](%s)" desc url)
+           ;; Autolink looks nicer when there's no description
+           (format "<%s>" url))))
 
-)
+      ;; File links: prefer a relative path without the "file:" prefix
+      ("file"
+       (let ((path raw-path))
+         ;; org stores file path in :path (no "file:" prefix), but it may be URL-escaped
+         (setq path (replace-regexp-in-string "%20" " " path))
+         (if (and contents (not (string-empty-p contents)))
+             (format "[%s](%s)" desc path)
+           (format "`%s`" path))))
 
-(defun org-phd-ox/github-md/src-block (src-block contents info)
-)
+      ;; In-buffer fuzzy links like [[*Heading]] or [[Heading]]
+      ("fuzzy"
+       ;; GitHub anchor generation is not 1:1 with Org headings; best-effort:
+       ;; if there's a description, keep it; otherwise show plain text.
+       (if (and contents (not (string-empty-p contents)))
+           desc
+         (format "`%s`" raw-path)))
+
+      ;; IDs/custom types: can't resolve without extra machinery; degrade gracefully
+      (_
+       (if (and contents (not (string-empty-p contents)))
+           desc
+         (format "`%s:%s`" type raw-path))))))
+
+(defun org-phd-ox/github-md/src-block (src-block _contents _info)
+  "Translate an Org SRC-BLOCK element into a GitHub Markdown fenced code block."
+  (let* ((lang (org-element-property :language src-block))
+         (code (or (org-element-property :value src-block) "")))
+    (concat "```" (or lang "") "\n"
+            code
+            (unless (string-suffix-p "\n" code) "\n")
+            "```\n\n")))
 
 (defun org-phd-ox/github-md/special-block (special-block contents
 							 info)

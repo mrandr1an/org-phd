@@ -1,5 +1,6 @@
 #+TITLE: Org-PhD
 #+SUBTITLE: Org Exports for *everyone*
+#+TARGET: GithubREADME
 
 #+begin_warning
 This is alpha software.
