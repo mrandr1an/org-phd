@@ -5,6 +5,7 @@
 (org-export-define-backend 'github-md
   '(
     (headline . org-phd-ox/github-md/headline)
+    (headline . org-phd-ox/github-md/section)
    )
  :menu-entry
   '(?g "Export to GitHub Markdown"
@@ -40,6 +41,14 @@ contextual information."
   )
 )
 
+(defun org-phd-ox/github-md/section (section contents info)
+  "Translate an irg SECTION into a github markdown section.
+CONTENTS holds the contents of the headline.  INFO is a plist holding
+contextual information."
+  (when contents
+  (concat (string-trim-right contents) "\n"))
+)
+
 (defun org-phd-ox/github-md/paragraph (paragraph contents info)
 )
 
@@ -70,9 +79,6 @@ contextual information."
 
 (defun org-phd-ox/github-md/link (link contents info)
 
-)
-
-(defun org-phd-ox/github-md/section (section contents info)
 )
 
 (defun org-phd-ox/github-md/src-block (src-block contents info)
