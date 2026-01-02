@@ -36,6 +36,7 @@
   (message "Not Interactive")
 )
 
+(require 'ox-githubmd)
 
 (provide 'org-phd-core)
 ;;; org-phd-core.el ends here
