@@ -8,7 +8,7 @@
     (section . org-phd-ox/github-md/section)
     (paragraph . org-phd-ox/github-md/paragraph)
 
-    (latex-fragment . org-phd-ox/github-md/special-block)
+    (special-block . org-phd-ox/github-md/special-block)
 
     (bold . org-phd-ox/github-md/bold)
     (strike-through . org-phd-ox/github-md/strike-through)
