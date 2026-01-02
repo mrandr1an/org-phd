@@ -47,7 +47,7 @@ contextual information."
 CONTENTS holds the contents of the headline.  INFO is a plist holding
 contextual information."
   (when contents
-  (concat (string-trim-right contents) "\n"))
+  (concat (string-trim-right contents) "\n\n"))
 )
 
 (defun org-phd-ox/github-md/paragraph (paragraph contents info)
