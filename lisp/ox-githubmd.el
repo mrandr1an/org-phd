@@ -7,6 +7,12 @@
     (headline . org-phd-ox/github-md/headline)
     (section . org-phd-ox/github-md/section)
     (paragraph . org-phd-ox/github-md/paragraph)
+
+    (bold . org-phd-ox/github-md/bold)
+    (strike-through . org-phd-ox/github-md/strike-through)
+    (italic . org-phd-ox/github-md/italic)
+    (underlined . org-phd-ox/github-md/underlined)
+    (latex-fragment. org-phd-ox/github-md/latex-fragment)
    )
  :menu-entry
   '(?g "Export to GitHub Markdown"
@@ -44,7 +50,7 @@ contextual information."
 
 (defun org-phd-ox/github-md/section (section contents info)
   "Translate an org SECTION into a github markdown section.
-CONTENTS holds the contents of the headline.  INFO is a plist holding
+CONTENTS holds the contents of the paragraph.  INFO is a plist holding
 contextual information."
   (when contents
   (concat (string-trim-right contents) "\n\n"))
@@ -52,26 +58,35 @@ contextual information."
 
 (defun org-phd-ox/github-md/paragraph (paragraph contents info)
   "Translate an org PARAGRAPH into a github markdown paragraph.
-CONTENTS holds the contents of the headline.  INFO is a plist holding
+CONTENTS holds the contents of the paragraph.  INFO is a plist holding
 contextual information."
   (when contents
-    (concat (string-trim-right contents) "\n\n"))
+    (concat (string-trim-right contents) "\n"))
 )
 
 (defun org-phd-ox/github-md/bold (bold contents info)
+  "Translate an org BOLD into a github markdown bold.
+CONTENTS is the text with bold markup.
+INFO is a plist holding contextual information."
+  (format "**%s**" (or contents ""))
 )
 
-(defun org-phd-ox/github-md/underline (underline contents info)
-)
+(defun org-phd-ox/github-md/underline (_underline contents _info)
+  "Translate Org UNDERLINE into GitHub Markdown using HTML."
+  (format "<u>%s</u>" (or contents "")))
 
-(defun org-phd-ox/github-md/strike-through (strike-through contents info)
-)
+(defun org-phd-ox/github-md/strike-through (_strike-through contents _info)
+  "Translate Org STRIKE-THROUGH into GitHub Markdown."
+  (format "~~%s~~" (or contents "")))
 
-(defun org-phd-ox/github-md/italic (italic contents info)
-)
+(defun org-phd-ox/github-md/italic (_italic contents _info)
+  "Translate Org ITALIC into GitHub Markdown."
+  (format "*%s*" (or contents "")))
 
-(defun org-phd-ox/github-md/latex-fragment (latex-fragment contents info)
-)
+(defun org-phd-ox/github-md/latex-fragment (latex-fragment _contents _info)
+  "Translate Org LaTeX fragment into inline code."
+  (let ((value (org-element-property :value latex-fragment)))
+    (format "`%s`" value)))
 
 (defun org-phd-ox/github-md/table (table contents info)
 )
