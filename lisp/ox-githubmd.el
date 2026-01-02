@@ -6,6 +6,7 @@
   '(
     (headline . org-phd-ox/github-md/headline)
     (headline . org-phd-ox/github-md/section)
+    (headline . org-phd-ox/github-md/paragraph)
    )
  :menu-entry
   '(?g "Export to GitHub Markdown"
@@ -42,7 +43,7 @@ contextual information."
 )
 
 (defun org-phd-ox/github-md/section (section contents info)
-  "Translate an irg SECTION into a github markdown section.
+  "Translate an org SECTION into a github markdown section.
 CONTENTS holds the contents of the headline.  INFO is a plist holding
 contextual information."
   (when contents
@@ -50,6 +51,11 @@ contextual information."
 )
 
 (defun org-phd-ox/github-md/paragraph (paragraph contents info)
+  "Translate an org PARAGRAPH into a github markdown paragraph.
+CONTENTS holds the contents of the headline.  INFO is a plist holding
+contextual information."
+  (when contents
+    (concat (string-trim-right contents) "\n\n"))
 )
 
 (defun org-phd-ox/github-md/bold (bold contents info)
