@@ -4,7 +4,7 @@
 This is a normal paragraph.
 
 This paragraph contains /italic/, *bold*, _underline_,
-+strike-through+, and a LaTeX fragment: \( a^2 + b^2 = c^2 \).
++strike-through+, and a LaTeX fragment: $a^2 + b^2 = c^2$.
 
 * Formatting Stress Test
 Mixing markup in one sentence:
@@ -20,7 +20,7 @@ Text under a second-level heading.
 This paragraph has only *italic* text.
 
 * LaTeX Visibility
-Inline math should not disappear: \( \int_0^1 x^2 dx \).
+Inline math should not disappear: $\int_0^1 x^2 dx$.
 
 * Ignored For Now
 #+begin_src emacs-lisp

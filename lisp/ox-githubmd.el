@@ -12,7 +12,7 @@
     (strike-through . org-phd-ox/github-md/strike-through)
     (italic . org-phd-ox/github-md/italic)
     (underlined . org-phd-ox/github-md/underlined)
-    (latex-fragment. org-phd-ox/github-md/latex-fragment)
+    (latex-fragment . org-phd-ox/github-md/latex-fragment)
    )
  :menu-entry
   '(?g "Export to GitHub Markdown"
