@@ -117,11 +117,10 @@ CONTENTS is the text with bold markup.
 INFO is a plist holding contextual information."
   (format "*%s*" (or contents "")))
 
-(defun org-phd-ox/github-md/code (_code contents _info)
-  "Translate Org CODE into GitHub Markdown.
-CONTENTS is the text with bold markup.
-INFO is a plist holding contextual information."
-  (format "`%s`" (or contents "")))
+(defun org-phd-ox/github-md/code (code _contents _info)
+  "Translate Org inline CODE into GitHub Markdown."
+  (let ((value (org-element-property :value code)))
+    (format "`%s`" (or value ""))))
 
 (defun org-phd-ox/github-md/latex-fragment (latex-fragment _contents _info)
   "Translate Org LATEX-FRAGMENT into inline code.

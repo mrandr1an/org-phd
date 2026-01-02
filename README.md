@@ -9,7 +9,7 @@ Org Exports for *everyone*
 > [!WARNING]
 > This is alpha software.
 # Motivation
-Org .
+Org ``.
 [Markdown sucks!](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax:)
 # Installation
 ```emacs-lisp
