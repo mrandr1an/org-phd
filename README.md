@@ -2,7 +2,7 @@
 # Top Level Heading
 This is a normal paragraph.
 
-This paragraph contains **italic**, ****bold****, ,
+This paragraph contains *italic*, **bold**, ,
 ~~strike-through~~, and a LaTeX fragment: .
 # Formatting Stress Test
 Mixing markup in one sentence:
