@@ -1,33 +1,13 @@
-#+title: Org → GitHub MD Export Test
+#+title: Org-PhD
+#+subtitle: Org Exports for *everyone*
 
-* Top Level Heading
-This is a normal paragraph.
+#+begin_alert
+This is alpha software.
+#+end_alert
 
-This paragraph contains /italic/, *bold*, _underline_,
-+strike-through+, and a LaTeX fragment: $a^2 + b^2 = c^2$.
+* Motivation
 
-* Formatting Stress Test
-Mixing markup in one sentence:
-*/bold/*
-
-Another paragraph after a blank line.
-
-* Nested Headings
-** Second Level
-Text under a second-level heading.
-
-** Third Level
-This paragraph has only *italic* text.
-
-* LaTeX Visibility
-Inline math should not disappear: $\int_0^1 x^2 dx$.
-
-* Ignored For Now
-#+begin_src emacs-lisp
-(message "This block is intentionally ignored for now")
-#+end_src
-
-** Installation
+* Installation
 #+begin_src emacs-lisp
 (use-package org-phd
   :elpaca (:host github :repo "mrandr1an/org-phd")
