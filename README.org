@@ -7,6 +7,8 @@ This is alpha software.
 #+end_warning
 
 * Motivation
+Org ~main()~.
+[[https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax:][Markdown sucks!]]
 
 * Installation
 #+begin_src emacs-lisp
